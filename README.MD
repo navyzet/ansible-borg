@@ -13,8 +13,13 @@ ansible-playbook -D -l client,client2,client3 -i inventory_example -b --extra-va
 
 
 Бэкапить системные папки:
-ansible-playbook -D -l client,client2,client3 -i inventory_example -b --extra-vars "ansible_sudo_pass=YOUR_SUDO_PASS  borg_ip=BORG-IP" borg.yaml
+ansible-playbook -D -l client,client2,client3 -i inventory_example -b --extra-vars "ansible_sudo_pass=YOUR_SUDO_PASS  borg_ip=BORG-IP" system_backup.yaml
 
 Если клиенту уже настроена passphrase 
 Добавить в inventory borg_pass
 
+Имя клиента это имя группы в inventory 
+
+[roga-kopita]
+roga-kopita.client1
+roga-kopita.client2
