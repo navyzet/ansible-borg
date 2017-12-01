@@ -21,5 +21,7 @@ ansible-playbook -D -l client,client2,client3 -i inventory_example -b --extra-va
 Имя клиента это имя группы в inventory 
 
 [roga-kopita]
+
 roga-kopita.client1
+
 roga-kopita.client2
