@@ -1,0 +1,5 @@
+*.retry
+.idea/
+/local_inventory
+*.swp
+/inventory

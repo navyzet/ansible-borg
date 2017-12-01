@@ -1,0 +1,7 @@
+[my]
+borg ansible_ssh_host=192.168.1.42 ansible_python_interpreter='/usr/bin/python3.5'
+
+[company]
+#client ansible_ssh_host=192.168.1.43 ansible_python_interpreter='/usr/bin/python3.5' borg_pass='testadsasdasdasdasdasd'
+client ansible_ssh_host=192.168.1.43
+

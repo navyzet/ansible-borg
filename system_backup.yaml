@@ -1,0 +1,38 @@
+- hosts: all
+  gather_facts: no
+
+  vars:
+    #borg: 'borg'
+    borg_ip: 51.255.92.185
+
+    system_backup:
+      - /etc
+      - /opt
+      - /tmp/packages
+      - /var/backups
+      - /var/spool/cron
+
+  tasks:
+
+  - name: "Создание папки со скриптами"
+    file: path=/opt/scripts/backup/
+          state=directory
+          recurse=yes
+          owner=root
+          group=root
+
+  - name: "Создание скрипта из шаблона"
+    template: src=templates/borgbackup_system.sh.j2
+              dest=/opt/scripts/backup/borgbackup_system.sh.j2
+              mode=755
+
+  - name: "Создание расписания"
+    cron:
+          name: "System backup"
+          minute: 0
+          hour: 1
+          day: '*'
+          weekday: '*'
+          user: root
+          job: "/opt/scripts/backup/borgbackup_system.sh  >> /var/log/borg_backup.log 2>&1"
+          cron_file: "borg_backup"
