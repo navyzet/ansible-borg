@@ -23,7 +23,7 @@
 
   - name: "Создание скрипта из шаблона"
     template: src=templates/borgbackup_system.sh.j2
-              dest=/opt/scripts/backup/borgbackup_system.sh.j2
+              dest=/opt/scripts/backup/borgbackup_system.sh
               mode=755
 
   - name: "Создание расписания"
